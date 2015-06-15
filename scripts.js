@@ -37,7 +37,15 @@ $("#calculate").click(function(event){
 
   var totalQualityPoints = currentQualityPoints + newQualityPoints;
   var totalCredits = attemptedCredits + newCredits;
-  $(".alert").html("GPA: " + (totalQualityPoints / totalCredits));
-  $(".alert").show();
+
+  var newGrade = totalQualityPoints / totalCredits;
+
+  if (isNaN(parseFloat(newGrade))) {
+    $(".alert").html("Invalid: all fields must be completed");
+    $(".alert").show();
+  } else {
+    $(".alert").html("GPA: " + newGrade);
+    $(".alert").show();
+  }
 
 });
