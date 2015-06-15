@@ -11,6 +11,9 @@ $(".remove").click(function() {
     $(this).parent().remove();
 });
 
+
+var gradeTree = { 'A': 4, 'B': 3, 'C': 2, 'D': 1, 'F': 0 };
+
 $("#calculate").click(function(event){
 
   event.preventDefault();
@@ -29,7 +32,7 @@ $("#calculate").click(function(event){
   var newQualityPoints = 0;
 
   $.each( course, function( key, value ) {
-    var gpa = parseFloat($(value).find('.class-gpa').val());
+    var gpa = gradeTree[$(value).find('.class-gpa').val().toUpperCase()];
     var credits = parseInt($(value).find('.class-credits').val(), 10);
     newCredits += credits;
     newQualityPoints += (gpa * credits);
