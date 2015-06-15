@@ -37,7 +37,7 @@ $("#calculate").click(function(event){
 
   var totalQualityPoints = currentQualityPoints + newQualityPoints;
   var totalCredits = attemptedCredits + newCredits;
-  $(".alert").html(totalQualityPoints / totalCredits);
+  $(".alert").html("GPA: " + (totalQualityPoints / totalCredits));
   $(".alert").show();
 
 });
